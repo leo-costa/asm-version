@@ -6,14 +6,18 @@
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <RootNamespace>AsmVersion</RootNamespace>
     <LangVersion>latest</LangVersion>
-  </PropertyGroup>
-
-  <PropertyGroup>
     <PackAsTool>true</PackAsTool>
     <PackageVersion>1.0.0</PackageVersion>
     <ToolCommandName>asmver</ToolCommandName>
     <PackageOutputPath>./nupkg</PackageOutputPath>
   </PropertyGroup>
+
+  <PropertyGroup>
+    <Author>Leonardo Costa</Author>
+    <Description>Dotnet tool to display assembly versions</Description>
+    <ProjectUrl>https://github.com/leo-costa/asm-version</ProjectUrl>
+    <Tags>assembly version</Tags>
+   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta*" />
