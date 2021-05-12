@@ -1,12 +1,13 @@
-﻿using System;
+using System;
 using System.CommandLine;
 using System.CommandLine.Invocation;
 using System.IO;
 using System.Reflection;
 
 Option<Type> type = new("--type", "Type of version to read from assembly");
-Argument<FileInfo> arg = new("Assembly", "Path to the dotnet assembly");
+Argument<FileInfo> arg = new("Assembly", "Path a the dotnet assembly");
 RootCommand cmd = new("Display dotnet assembly versions") { type, arg };
+cmd.Name = "asmver";
 
 cmd.Handler = CommandHandler.Create<Type, FileInfo>((type, assembly) =>
 {
