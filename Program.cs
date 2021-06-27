@@ -1,11 +1,12 @@
 using System;
 using System.CommandLine;
 using System.CommandLine.Invocation;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 
 Option<Type> type = new("--type", "Type of version to read from assembly");
-Argument<FileInfo> arg = new("Assembly", "Path a the dotnet assembly");
+Argument<FileInfo> arg = new("Assembly", "Path to a dotnet assembly");
 RootCommand cmd = new("Display dotnet assembly versions") { type, arg };
 cmd.Name = "asmver";
 
@@ -13,13 +14,14 @@ cmd.Handler = CommandHandler.Create<Type, FileInfo>((type, assembly) =>
 {
     try
     {
-        Assembly asm = Assembly.LoadFile(assembly.FullName);
+        var asm = Assembly.LoadFile(assembly.FullName);
+        var versionInfo = FileVersionInfo.GetVersionInfo(assembly.FullName);
 
         string? ver = type switch
         {
             Type.Asm => asm.GetName().Version?.ToString(),
-            Type.File => asm.GetCustomAttribute<AssemblyFileVersionAttribute>()?.Version,
-            _ => asm.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion
+            Type.File => versionInfo.FileVersion,
+            _ => versionInfo.ProductVersion
         };
 
         if (ver is not null)
