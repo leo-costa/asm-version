@@ -1,8 +1,6 @@
-using System;
 using System.CommandLine;
 using System.CommandLine.Invocation;
 using System.Diagnostics;
-using System.IO;
 using System.Reflection;
 
 Option<Type> type = new("--type", "Type of version to read from assembly");
