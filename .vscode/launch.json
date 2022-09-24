@@ -9,8 +9,10 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/bin/Debug/net5.0/asm-version.dll",
-            "args": [""],
+            "program": "${workspaceFolder}/bin/Debug/net7.0/asm-version.dll",
+            "args": [
+                ""
+            ],
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
             "stopAtEntry": false
