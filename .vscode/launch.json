@@ -9,7 +9,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/bin/Debug/net7.0/asm-version.dll",
+            "program": "${workspaceFolder}/artifacts/bin/asm-version/debug_net8.0/asm-version.dll",
             "args": [
                 ""
             ],

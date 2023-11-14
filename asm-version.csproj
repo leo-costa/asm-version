@@ -1,12 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <RootNamespace>AsmVersion</RootNamespace>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -14,8 +13,8 @@
     <Description>Dotnet tool to find out assembly, info or file version number</Description>
     <PackAsTool>true</PackAsTool>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageOutputPath>./nupkg</PackageOutputPath>
     <PackageProjectUrl>https://github.com/leo-costa/asm-version</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/leo-costa/asm-version.git</RepositoryUrl>
     <PackageTags>assembly info file version</PackageTags>
@@ -24,5 +23,9 @@
 
   <ItemGroup>
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 </Project>
