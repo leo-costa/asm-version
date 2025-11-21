@@ -3,11 +3,15 @@ using System.Diagnostics;
 using System.Reflection;
 
 var typeOption = new Option<Type>("--type", "Type of version to read from assembly");
-var asmArgument = new Argument<FileInfo>("Assembly", "Path to a dotnet assembly");
-var cmd = new RootCommand("Display dotnet assembly versions") { typeOption, asmArgument };
+var asmArgument = new Argument<FileInfo>("Assembly") { Description = "Path to a dotnet assembly" };
+var cmd = new RootCommand("Display dotnet assembly versions")
+{
+    typeOption,
+    asmArgument,
+};
 
 cmd.Name = "asmver";
-cmd.SetHandler((type, assembly) =>
+cmd.SetAction((type, assembly) =>
 {
     try
     {
@@ -31,6 +35,6 @@ cmd.SetHandler((type, assembly) =>
 
 }, typeOption, asmArgument);
 
-return cmd.InvokeAsync(args).Result;
+return cmd.Invoke(args).Result;
 
 enum Type { Asm, File, Info };
